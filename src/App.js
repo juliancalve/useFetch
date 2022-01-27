@@ -1,22 +1,25 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Toast from './components/Toast/Toast';
+import Login from './pages/Login';
 
 function App() {
+
+  const { message, isError, loading } = useSelector(store => store.apiReducer);
+
   return (
     <div className="App">
+      {loading && <div
+      style={{
+        width: '100vw',
+        height: '100vh',
+        position: 'absolute',
+        backgroundColor: 'rgba(tr234,tr234,tr234,.4)'}}>
+          Loading
+      </div>}
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        {isError && <Toast message={message}/>}
+        <Login />
       </header>
     </div>
   );

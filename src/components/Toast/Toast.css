@@ -1,0 +1,20 @@
+.toast-container {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    z-index: 999999;
+    top: 0;
+}
+
+.toast-body {
+    background-color: red;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+}
+
+.toast-text {
+    margin: 0;
+    padding: 0;
+}
